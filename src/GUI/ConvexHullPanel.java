@@ -1,11 +1,9 @@
 package GUI;
 
 import java.awt.Graphics;
-import java.awt.Point;
 import java.awt.event.ActionEvent;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-import java.awt.geom.Line2D;
 import java.util.ArrayList;
 
 import javax.swing.AbstractAction;
@@ -50,9 +48,8 @@ public class ConvexHullPanel extends JPanel implements MouseListener {
 		}
 	}
 	
-	public void addPoint(double x, double y) {
-		Point temp = new Point();
-		temp.setLocation(x, y);
+	public void addPoint(int x, int y) {
+		Point temp = new Point(x, y);
 		points.add(temp);
 	}
 
@@ -78,6 +75,7 @@ public class ConvexHullPanel extends JPanel implements MouseListener {
 		repaint();
 	}
 	
+	// Method which adds the hull frame around the points (it calls the algorithm method).
 	public void drawConvexHull() {
 		for (Point p : points) {
 			hullFrame.add(p);
